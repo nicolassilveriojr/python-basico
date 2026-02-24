@@ -4,14 +4,31 @@ print('=====================================')
 print('🎯 BEM-VINDO(A) AO JOGO DA ADIVINHAÇÃO 🎯')
 print('=====================================')
 print('Vou pensar em um número entre 1 e 100...')
-print('Você tem 3 chances para acertar!\n')
+print('Escolha a dificuldade:')
+print('1 - facil (10 tentativas)')
+print('2 - medio (5 tentativas)')
+print('3 - dificil (2 tentativas)')
+
+
+def definir_dificuldade():
+    dificuldade = input('digite a dificuldade: ')
+    if dificuldade == '1':
+        return 10
+    elif dificuldade == '2':
+        return 5
+    elif dificuldade == '3':
+        return 2
+    else:
+        print("Você escolheu uma opção inválida! faça outra escolha de dificuldade.")
+        exit()
+
+tentativas = definir_dificuldade()
+print(f'Você tem {tentativas} tentativas para adivinhar o número secreto. Boa sorte! 🍀\n')
+
 
 numero_secreto = random.randrange(1, 101)
-total_de_tentativas = 3
 
-for rodada in range(1, total_de_tentativas + 1):
-    print(f'🔥 Tentativa {rodada} de {total_de_tentativas} 🔥')
-
+for tentativa in range(1, tentativas + 1):
     chute_str = input('Qual é o seu palpite? → ')
     print(f'Você chutou: {chute_str}')
 
